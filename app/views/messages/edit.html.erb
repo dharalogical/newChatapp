@@ -1,6 +1,17 @@
 <h1>Editing message</h1>
+<%= form_with(model: @message) do |form| %>
+  <% frame_id = dom_id(@message, "name_turbo_frame") %>
+  <%= turbo_frame_tag frame_id, class: "contensts" do %>
+    <div>
+      <%= form.label :name, style: "display: block" %>
+      <%= form.text_field :name %>
 
-<%= render "form", message: @message %>
+      <%= form.button "Save Name"%>
+      <%= link_to "Cancel", @message %>
+    </div>
+  <% end %>
+<% end %>
+
 
 <br>
 
