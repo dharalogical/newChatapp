@@ -1,21 +1,16 @@
 <h1>Editing message</h1>
 <%= form_with(model: @message) do |form| %>
-  <% frame_id = dom_id(@message, "name_turbo_frame") %>
-  <%= turbo_frame_tag frame_id, class: "contensts" do %>
-    <div>
-      <%= form.label :name, style: "display: block" %>
-      <%= form.text_field :name %>
-
-      <%= form.button "Save Name"%>
-      <%= link_to "Cancel", @message %>
-    </div>
+  <%= render "inline_fields", form: form, attribute: :name do %>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name %>
+  <% end %>
+  <%= render "inline_fields", form: form, attribute: :content do %>
+    <%= form.label :content, style: "display: block" %>
+    <%= form.text_field :content %>
   <% end %>
 <% end %>
 
-
-<br>
-
 <div>
-  <%= link_to "Show this message", @message %> |
+  <%= link_to "Edit this message", @message %> |
   <%= link_to "Back to messages", messages_path %>
 </div>

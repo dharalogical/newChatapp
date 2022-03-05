@@ -1,11 +1,11 @@
 <p style="color: green"><%= notice %></p>
 
-<% frame_id = dom_id(@message, "name_turbo_frame") %>
-<%= form_with(model: @message, class: "contents", data: { turbo_frame: frame_id}) do %>
-  <%= turbo_frame_tag frame_id do %>
-    <h1><%= @message.name %></h1>
-    <%= link_to "Edit Name", edit_message_path(@message)%>
-  <% end %>
+<%= render "inline_edit", model: @message, attribute: :name do %>
+  <h1><%= @message.name %></h1>
+<% end %>
+
+<%= render "inline_edit", model: @message, attribute: :content do %>
+  <h1><%= @message.content %></h1>
 <% end %>
 
 
