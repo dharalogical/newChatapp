@@ -49,6 +49,9 @@ class MessagesController < ApplicationController
 
   # DELETE /messages/1 or /messages/1.json
   def destroy
+    p 11111111111
+    p 1111111111
+    @message = Message.find(params[:id])
     @message.destroy
 
     respond_to do |format|
