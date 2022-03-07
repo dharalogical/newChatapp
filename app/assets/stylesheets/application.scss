@@ -13,6 +13,6 @@
  *= require_tree .
  *= require_self
  */
-
+ @import "bootstrap";
  .inline-action { display: none;}
  .inline-edit .inline-action { display: initial; }
